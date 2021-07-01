@@ -4,16 +4,13 @@ class Task < ApplicationRecord
   validates :status, inclusion: { in: %w[not-started in-progress complete] }
 
   STATUS_OPTIONS = [['Not started', 'not-started'], ['In progress', 'in-progress'], ['Complete', 'complete']].freeze
-
+  BADGE_COLOR = {
+    'not-started' => 'secondary',
+    'in-progress' => 'info',
+    'complete' => 'success'
+  }.freeze
   def badge_color
-    case status
-    when 'not-started'
-      'secondary'
-    when 'in-progress'
-      'info'
-    when 'complete'
-      'success'
-    end
+    BADGE_COLOR[status]
   end
 
   def complete?
