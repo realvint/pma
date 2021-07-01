@@ -1,6 +1,13 @@
-<h1>Editing Project</h1>
-
-<%= render 'form', project: @project %>
-
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<div class="card">
+  <div class="card-body">
+    <div class="card-title d-flex justify-content-between mb-4">
+      <h3>
+        <span>
+         Editing Project
+        </span>
+      </h3>
+      <%= link_to 'Back', projects_path , class: 'btn btn-outline-secondary' %>
+    </div>
+    <%= render 'form', project: @project %>
+  </div>
+</div>

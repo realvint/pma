@@ -1,3 +1,12 @@
 body {
-  background-color: #eeeeee;
+  background-color: #f8f9fa;
+}
+a {
+  text-decoration: none;
+}
+.project-card {
+  transition: background-color  0.5s ease;
+  &:hover {
+    background-color: #F7F7F7;
+  }
 }

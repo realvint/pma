@@ -1,6 +1,17 @@
-<h1>Editing task</h1>
+<div class="card">
+  <div class="card-body">
+    <div class="card-title d-flex justify-content-between mb-4">
+      <h3>
+        <span>
+         Editing task
+        </span>
+      </h3>
+      <%= link_to 'Back', @project, class: 'btn btn-outline-secondary' %>
+    </div>
+    <%= render 'form' %>
+  </div>
+</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', [@task.project, @task] %> |
-<%= link_to 'Back', project_tasks_path(@task.project) %>
+
+

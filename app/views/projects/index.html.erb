@@ -1,31 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-body">
+    <div class="card-title d-flex justify-content-between mb-4">
+      <h3>
+        <span>
+         Projects
+        </span>
+      </h3>
+      <%= link_to 'New Project', new_project_path, class: 'btn btn-outline-primary' %>
+    </div>
 
-<h1>Projects</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.description %></td>
-        <td><%= project.user_id %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= link_to project, class: 'text-decoration-none' do %>
+        <div class="card mb-3 project-card">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="badge bg-<%= project.badge_color %>"><%= project.status %></span>
+              <span class="text-secondary">
+                <small>
+                  <%= project.percent_complete %>% complete
+                  (<%= project.total_complete %>/<%= project.total_tasks %> tasks)
+                </small>
+              </span>
+            </div>
+            <h4 class="card-title text-dark"><%= project.name %></h4>
+            <p class="text-secondary"><%= project.description %></p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
-<br>
 
-<%= link_to 'New Project', new_project_path %>
+
+
+
+
